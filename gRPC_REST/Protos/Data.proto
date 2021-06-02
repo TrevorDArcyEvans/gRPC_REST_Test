@@ -9,7 +9,7 @@ service DataService {
 }
 
 message DataRequest {
-  string name = 1;
+  int32 chunk = 1;
 }
 
 message DataResponse {

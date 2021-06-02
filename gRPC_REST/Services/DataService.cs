@@ -17,7 +17,7 @@ namespace gRPC_REST
     {
       return Task.FromResult(new DataResponse
       {
-        Message = "Hello " + request.Name
+        Message = "Hello " + request.Chunk.ToString()
       });
     }
   }

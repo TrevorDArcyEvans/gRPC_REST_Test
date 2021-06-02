@@ -12,7 +12,7 @@ namespace gRPC_REST_Client
       // The port number(5001) must match the port of the gRPC server.
       using var channel = GrpcChannel.ForAddress("https://localhost:5001");
       var client = new DataService.DataServiceClient(channel);
-      var request = new DataRequest { Name = "GreeterClient" };
+      var request = new DataRequest { Chunk = 22 };
       var reply = await client.GetDataAsync(request);
 
       Console.WriteLine("Greeting: " + reply.Message);
