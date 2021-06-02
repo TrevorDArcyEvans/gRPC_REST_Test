@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "gRPC_REST_Client": {
+      "commandName": "Project"
+    }
+  }
+}
