@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 
-namespace gRPC_REST
+namespace gRPC_REST.Services
 {
   public class DataServiceImpl : DataService.DataServiceBase
   {
