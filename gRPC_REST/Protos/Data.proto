@@ -2,20 +2,16 @@ syntax = "proto3";
 
 option csharp_namespace = "gRPC_REST";
 
-package greet;
+package Data;
 
-// The greeting service definition.
 service DataService {
-  // Sends a greeting
   rpc GetData (DataRequest) returns (DataResponse);
 }
 
-// The request message containing the user's name.
 message DataRequest {
   string name = 1;
 }
 
-// The response message containing the greetings.
 message DataResponse {
   string message = 1;
 }
