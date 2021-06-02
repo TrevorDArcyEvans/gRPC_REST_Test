@@ -12,6 +12,18 @@ message DataRequest {
   int32 chunk = 1;
 }
 
+message DataPacket {
+  string name = 1;
+  string id = 2;
+  string sourceId = 3;
+  string targetId = 4;
+  string organisationId = 5;
+  string repositoryId = 6;
+  string ownerId = 7;
+  string nextId = 8;
+}
+
 message DataResponse {
   string message = 1;
+  repeated DataPacket payload = 2;
 }

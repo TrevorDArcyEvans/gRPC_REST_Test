@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -15,10 +17,27 @@ namespace gRPC_REST
 
     public override Task<DataResponse> GetData(DataRequest request, ServerCallContext context)
     {
-      return Task.FromResult(new DataResponse
+      var response = new DataResponse
       {
-        Message = "Hello " + request.Chunk.ToString()
+        Message = "Requested:  " + request.Chunk
+      };
+      Enumerable.Range(0, request.Chunk).ToList().ForEach(i =>
+      {
+        var dp = new DataPacket
+        {
+          Name = "Name: " + Guid.NewGuid(),
+          Id = Guid.NewGuid().ToString(),
+          SourceId = Guid.NewGuid().ToString(),
+          TargetId = Guid.NewGuid().ToString(),
+          OrganisationId = Guid.NewGuid().ToString(),
+          RepositoryId = Guid.NewGuid().ToString(),
+          OwnerId = Guid.NewGuid().ToString(),
+          NextId = Guid.NewGuid().ToString(),
+        };
+        response.Payload.Add(dp);
       });
+
+      return Task.FromResult(response);
     }
   }
 }
