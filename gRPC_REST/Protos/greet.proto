@@ -5,17 +5,17 @@ option csharp_namespace = "gRPC_REST";
 package greet;
 
 // The greeting service definition.
-service Greeter {
+service DataService {
   // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc GetData (DataRequest) returns (DataResponse);
 }
 
 // The request message containing the user's name.
-message HelloRequest {
+message DataRequest {
   string name = 1;
 }
 
 // The response message containing the greetings.
-message HelloReply {
+message DataResponse {
   string message = 1;
 }
