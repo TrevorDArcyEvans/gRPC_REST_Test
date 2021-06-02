@@ -10,6 +10,8 @@ namespace gRPC_REST_Client
   {
     public static async Task Main(string[] args)
     {
+      const int ChunkSize = 1000000;
+
       // The port number(5001) must match the port of the gRPC server.
       using var channel = GrpcChannel.ForAddress("https://localhost:5001", new GrpcChannelOptions
       {
@@ -26,7 +28,7 @@ namespace gRPC_REST_Client
 
       var request = new DataRequest
       {
-        Chunk = 1000000
+        Chunk = ChunkSize
       };
       var sw = Stopwatch.StartNew();
       var response = await client.GetDataAsync(request);
